@@ -9,11 +9,10 @@ use Cycle\Database\Schema\ComparatorInterface;
 use Cycle\Migrations\Atomizer\Atomizer;
 use Cycle\Migrations\Atomizer\RendererInterface;
 use Cycle\Schema\Generator\Migrations\NameBasedOnChangesGenerator;
-use Cycle\Schema\Generator\Migrations\NameBasedOnChangesMd5Generator;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \Cycle\Schema\Generator\Migrations\NameBasedOnChangesMd5Generator
+ * @coversDefaultClass \Cycle\Schema\Generator\Migrations\NameBasedOnChangesGenerator
  */
 final class NameBasedOnChangesGeneratorTest extends TestCase
 {
@@ -46,11 +45,9 @@ final class NameBasedOnChangesGeneratorTest extends TestCase
             ->addTable($create)
             ->addTable($drops)
             ->addTable($renames);
-        $generator = new NameBasedOnChangesMd5Generator(
-            new NameBasedOnChangesGenerator(),
-        );
+        $generator = new NameBasedOnChangesGenerator();
         self::assertSame(
-            'ebd53bb6a674d7cff0c657f57fb876dc',
+            'create_creates_drop_drops_rename_old_name',
             $generator->generate($atomizer),
         );
     }

@@ -38,7 +38,7 @@ final class Collector implements CollectorInterface
             }
 
             foreach ($comparator->droppedColumns() as $column) {
-                $result[] = [ChangeType::Rm , $column->getName()];
+                $result[] = [ChangeType::Remove , $column->getName()];
             }
 
             foreach ($comparator->alteredColumns() as $column) {
@@ -50,7 +50,7 @@ final class Collector implements CollectorInterface
             }
 
             foreach ($comparator->droppedIndexes() as $index) {
-                $result[] = [ChangeType::RmIndex , $index->getName()];
+                $result[] = [ChangeType::RemoveIndex , $index->getName()];
             }
 
             foreach ($comparator->alteredIndexes() as $index) {
@@ -62,7 +62,7 @@ final class Collector implements CollectorInterface
             }
 
             foreach ($comparator->droppedForeignKeys() as $fk) {
-                $result[] = [ChangeType::RmFk , $fk->getName()];
+                $result[] = [ChangeType::RemoveFk , $fk->getName()];
             }
 
             foreach ($comparator->alteredForeignKeys() as $fk) {

@@ -7,8 +7,7 @@ namespace Cycle\Schema\Generator\Migrations\Changes;
 use Cycle\Migrations\Atomizer\Atomizer;
 
 /**
- * @psalm-type TTableName = string
- * @psalm-type TChange = array<ChangeType, TTableName>
+ * @psalm-type TChange = array<ChangeType, string>
  */
 interface CollectorInterface
 {
