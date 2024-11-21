@@ -10,8 +10,7 @@ final class NameBasedOnChangesMd5Generator implements NameGeneratorInterface
 {
     public function __construct(
         private readonly NameBasedOnChangesGenerator $inner
-    )
-    {
+    ) {
     }
 
     public function generate(Atomizer $atomizer): string
