@@ -11,19 +11,14 @@ use Cycle\Schema\Generator\Migrations\Changes\CollectorInterface;
 
 final class NameBasedOnChangesGenerator implements NameGeneratorInterface
 {
-    public function __construct(
-        private readonly CollectorInterface $collector = new Collector(),
-    )
-    {
-    }
-
     public function generate(Atomizer $atomizer): string
     {
+        $collector = new Collector();
         return \implode(
             '_',
             \array_map(
                 fn(array $pair) => $this->changeToString($pair[0], $pair[1]),
-                $this->collector->collect($atomizer),
+                $collector->collect($atomizer),
             )
         );
     }

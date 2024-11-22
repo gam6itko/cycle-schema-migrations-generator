@@ -7,7 +7,7 @@ namespace Cycle\Schema\Generator\Migrations\Changes;
 use Cycle\Database\Schema\AbstractTable;
 use Cycle\Migrations\Atomizer\Atomizer;
 
-final class Collector implements CollectorInterface
+final class Collector
 {
     public function collect(Atomizer $atomizer): array
     {

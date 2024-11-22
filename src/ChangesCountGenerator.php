@@ -10,13 +10,9 @@ use Cycle\Schema\Generator\Migrations\Changes\CollectorInterface;
 
 final class ChangesCountGenerator implements NameGeneratorInterface
 {
-    public function __construct(
-        private readonly CollectorInterface $collector = new Collector(),
-    ) {
-    }
-
     public function generate(Atomizer $atomizer): string
     {
-        return \sprintf('changes_%d', $this->collector->collect($atomizer));
+        $collector = new Collector();
+        return \sprintf('changes_%d', $collector->collect($atomizer));
     }
 }
