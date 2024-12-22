@@ -10,8 +10,15 @@ on:  # yamllint disable-line rule:truthy
 
 name: MSSQL
 
+
 jobs:
   phpunit:
     uses: cycle/gh-actions/.github/workflows/db-mssql.yml@master
+    with:
+      php:
+        description: PHP versions to test, separated by comma. Part of matrix.
+        default: '["8.1","8.2","8.3","8.4"]'
+        required: false
+        type: string
 
 ...
